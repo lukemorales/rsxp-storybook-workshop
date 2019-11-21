@@ -13,6 +13,7 @@ export default function Input({
   size,
   iconStyle,
   children,
+  variants,
   ...rest
 }) {
   const ref = useRef(null);
@@ -32,7 +33,7 @@ export default function Input({
   }, [ref.current, fieldName]); //eslint-disable-line
 
   return (
-    <Label htmlFor={fieldName} icon={icon}>
+    <Label htmlFor={fieldName} icon={icon} variants={variants}>
       {error && <span>{error}</span>}
 
       <input
@@ -57,12 +58,14 @@ Input.propTypes = {
   size: PropTypes.number,
   iconStyle: PropTypes.objectOf(PropTypes.any),
   children: PropTypes.element,
+  variants: PropTypes.object, //eslint-disable-line
 };
 
-Input.defaultProps = ({ name }) => ({
+Input.defaultProps = {
   icon: '',
   label: '',
   size: null,
   iconStyle: null,
   children: null,
-});
+  variants: {},
+};

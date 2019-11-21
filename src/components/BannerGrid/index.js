@@ -6,14 +6,11 @@ export default function BannerGrid({ banners, left, up, down }) {
   return (
     <Container left={left} up={up} down={down}>
       {banners.map(banner => (
-        <a
-          href={banner.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          key={banner.img.alt}
-        >
-          <img src={banner.img.src} alt={banner.img.alt} />
-        </a>
+        <div key={banner.img.alt}>
+          <a href={banner.link} target="_blank" rel="noopener noreferrer">
+            <img src={banner.img.src} alt={banner.img.alt} />
+          </a>
+        </div>
       ))}
     </Container>
   );

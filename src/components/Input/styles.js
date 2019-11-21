@@ -58,7 +58,7 @@ export const Label = styled.label`
       position: absolute;
       left: 1.6rem;
       top: 4.5rem;
-      transition: default;
+      transition: 180ms ease-in-out;
     }
 
     + span {

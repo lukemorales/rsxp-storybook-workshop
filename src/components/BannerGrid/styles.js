@@ -6,7 +6,7 @@ export const Container = styled.section`
   grid-template-columns: 1fr 1fr 1fr;
   margin-bottom: 4rem;
 
-  a {
+  div {
     border-radius: 4px;
     max-width: 100%;
     max-height: 100%;

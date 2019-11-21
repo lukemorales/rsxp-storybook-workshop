@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { shuffle } from 'lodash';
 import { Container, Header, Partner, Partners } from './styles';
@@ -6,23 +6,14 @@ import { Container, Header, Partner, Partners } from './styles';
 import BannerGrid from '../../components/BannerGrid';
 
 import partnersList from '../../services/partners';
-import bannersList from '../../services/banners';
+import banners from '../../services/banners';
 import Button from '../../components/Button';
-import Loading from '../../components/Loading';
 
 export default function Home() {
   const [partners, setPartners] = useState(partnersList);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 5000);
-  }, []);
 
   return (
     <>
-      {/* <Loading isLoading={isLoading} /> */}
       <Container>
         <Header>
           <a
@@ -39,7 +30,7 @@ export default function Home() {
             Nova Conta
           </Button>
         </Header>
-        <BannerGrid banners={bannersList} />
+        <BannerGrid banners={banners} />
         <h2>
           Apoiadores
           <Button inline onClick={() => setPartners(shuffle(partnersList))}>

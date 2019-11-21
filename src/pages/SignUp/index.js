@@ -11,16 +11,16 @@ import Input from '../../components/Input';
 import Modal from '../../components/Modal';
 
 const schema = Yup.object().shape({
-  name: Yup.string().required('Preencha com seu nome completo'),
-  username: Yup.string().required('Preencha um nome de usuário'),
-  email: Yup.string()
+  signName: Yup.string().required('Preencha com seu nome completo'),
+  signUsername: Yup.string().required('Preencha um nome de usuário'),
+  signEmail: Yup.string()
     .email('Email inválido')
     .required('Preencha seu email'),
-  password: Yup.string()
+  signPassword: Yup.string()
     .min(6, 'Senha deve ter no mínimo 6 caracteres')
     .required('Preencha uma senha'),
   confirmPassword: Yup.string()
-    .oneOf([Yup.ref('password'), null], 'Senhas devem ser iguais')
+    .oneOf([Yup.ref('signPassword'), null], 'Senhas devem ser iguais')
     .required('Confirmação de senha é obrigatória'),
 });
 
