@@ -17,13 +17,14 @@ export default function BannerGrid({ banners, left, up, down }) {
 }
 
 BannerGrid.propTypes = {
+  /** Array of banners */
   banners: PropTypes.arrayOf(
     PropTypes.shape({
-      link: PropTypes.string,
+      link: PropTypes.string.isRequired,
       img: PropTypes.shape({
-        src: PropTypes.string,
-        alt: PropTypes.string,
-      }),
+        src: PropTypes.string.isRequired,
+        alt: PropTypes.string.isRequired,
+      }).isRequired,
     })
   ).isRequired,
   left: PropTypes.bool,

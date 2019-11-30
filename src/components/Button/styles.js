@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { readableColor } from 'polished';
+import { darken, lighten, readableColor } from 'polished';
 
 export const Container = styled.button`
   cursor: pointer;
@@ -24,16 +24,46 @@ export const Container = styled.button`
             !secondary
               ? css`
                   border: 0;
-                  color: ${p => readableColor(p.color)};
+                  color: ${p => readableColor(p.color, '#232527', '#fff')};
                   background-color: ${p => p.color};
+
+                  :hover {
+                    transform: scale(1.01);
+                    background-color: ${p => lighten(0.025, p.color)};
+                    text-decoration: none;
+                  }
+
+                  :active {
+                    transform: scale(0.99);
+                    background-color: ${p => darken(0.025, p.color)};
+                  }
                 `
               : css`
                   border: ${p => `2px solid ${p.color}`};
                   color: ${p => readableColor(p.color)};
+
+                  :hover {
+                    background-color: ${p => p.color};
+                    text-decoration: none;
+                  }
+
+                  :active {
+                    transform: scale(0.99);
+                    background-color: ${p => darken(0.025, p.color)};
+                  }
                 `}
         `
       : css`
           color: #7159c1;
+
+          :hover {
+            color: ${lighten(0.05, '#7159c1')};
+            text-decoration: underline;
+          }
+
+          :active {
+            color: ${darken(0.05, '#7159c1')};
+          }
         `}
 
   > span + svg {
